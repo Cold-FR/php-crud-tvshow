@@ -1,0 +1,37 @@
+{
+    "name": "davi0063/sae2-01",
+    "description": "Développement d'une application Web de consultation et modification de séries TVs",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Clément David",
+            "email": "clement.david1@etudiant.univ-reims.fr"
+        },
+        {
+            "name": "Killian Bouroult",
+            "email": "killian.bouroult@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.58"
+    },
+    "config": {
+        "process-timeout": 0
+    },
+    "scripts": {
+        "start": "@start:linux",
+        "start:linux": "bin/run-server.sh",
+        "start:windows": "bin/run-server.bat",
+        "test:cs": "php-cs-fixer fix --dry-run --diff",
+        "fix:cs": "php-cs-fixer fix"
+    }
+}
