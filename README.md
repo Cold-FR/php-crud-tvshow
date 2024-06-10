@@ -30,6 +30,11 @@ password = ...
 
 ## Serveur Web local
 
+Si vous êtes sur Linux, avant de lancer une des commandes ci-dessous, exécutez cette commande :
+```shell
+setfacl -m u::rwx bin/run-server.sh
+```
+
 Pour lancer le serveur web local, il suffit de lancer la commande suivante :  
 Pour Linux :
 ```shell
