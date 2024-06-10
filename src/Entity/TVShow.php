@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Collection\AlbumCollection;
+use Entity\Collection\SeasonCollection;
 use Entity\Exception\EntityNotFoundException;
 
 class TVShow
@@ -59,5 +61,9 @@ class TVShow
         }
 
         return $tvShow;
+    }
+    public function getSeasons(): array
+    {
+        return SeasonCollection::findByTvShowId($this->id);
     }
 }
