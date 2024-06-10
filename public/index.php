@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Entity\TVShow;
 use Entity\Collection\TVShowCollection;
 use Entity\Exception\EntityNotFoundException;
 use Html\AppWebPage;
@@ -24,7 +23,7 @@ try {
                         {$webPage->escapeString($tvShow->getName())}
                     </h3>
                     <p class="list-element-overview">
-                        {$tvShow->getOverview()}
+                        {$webPage->escapeString($tvShow->getOverview())}
                     </p>
                 </div>
             </a>
