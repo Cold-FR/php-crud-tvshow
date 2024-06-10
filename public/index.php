@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Entity\TVShow;
@@ -12,19 +13,16 @@ try {
     $tvShows = TVShowCollection::findAll();
 
     foreach ($tvShows as $index => $tvShow) {
-        $webPage->appendContent("<a><div>{$webPage->escapeString($tvShow->getName())}{$tvShow->getOverview()}</div></a>");
+        $webPage->appendContent("<a><img src='poster.php?posterId={$tvShow->getPosterId()}'><div>{$webPage->escapeString($tvShow->getName())}{$tvShow->getOverview()}</div></a>");
     }
 
 
     echo $webPage->toHTML();
 
-} catch (EntityNotFoundException){
+} catch (EntityNotFoundException) {
     http_response_code(404);
 
 } catch (Exception) {
     http_response_code(500);
 
 }
-
-
-
