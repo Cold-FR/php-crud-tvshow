@@ -44,7 +44,7 @@ class Season
     {
         $stmtSeason = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT name,id
+            SELECT *
             FROM season
             WHERE id=:id 
             SQL
