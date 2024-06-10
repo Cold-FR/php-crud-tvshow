@@ -12,7 +12,7 @@ try {
 
     $tvShows = TVShowCollection::findAll();
 
-    foreach ($tvShows as $index => $tvShow) {
+    foreach ($tvShows as $tvShow) {
         $webPage->appendContent("<a><img src='poster.php?posterId={$tvShow->getPosterId()}'><div>{$webPage->escapeString($tvShow->getName())}{$tvShow->getOverview()}</div></a>");
     }
 
