@@ -61,6 +61,7 @@ class TVShow
 
         return $tvShow;
     }
+
     public function getSeasons(): array
     {
         return SeasonCollection::findByTvShowId($this->id);
