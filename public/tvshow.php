@@ -7,8 +7,7 @@ use Html\AppWebPage;
 
 try {
     if(empty($_GET['tvShowId']) || !is_numeric($_GET['tvShowId'])) {
-        header('Location: index.php');
-        exit;
+        throw new ParameterException("L'identifiant entré pour la série est invalide.");
     }
     $AppWebPage = new AppWebPage();
     $tvShowId = (int) $_GET['tvShowId'];
