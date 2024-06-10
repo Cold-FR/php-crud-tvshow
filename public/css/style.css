@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header, .content, .footer, .menu, .list-element {
+    border: 1px solid lightgrey;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    flex: 1;
+    overflow: scroll;
+    padding: 20px;
+}
+
+.menu {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu > * {
+    user-select: none;
+    padding: 10px;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    font-size: 1.2em;
+}
+
+.menu > a {
+    cursor: pointer;
+}
+
+.list {
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-element {
+    text-decoration: none;
+    padding: 10px 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.list-element:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+
+.img-poster {
+    width: 154px;
+    height: 231px;
+}
+
+.list-element-title {
+    text-decoration: underline;
+}
+
+.list-element-overview {
+    color: #000;
+}
+
+.footer {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
