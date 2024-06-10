@@ -24,6 +24,8 @@ try {
     }
 
     echo $AppWebPage->toHTML();
+} catch (ParameterException) {
+    header('Location: index.php'); 
 } catch (Exception) {
     http_response_code(500);
 }
