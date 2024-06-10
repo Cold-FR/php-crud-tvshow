@@ -11,9 +11,9 @@ try {
         exit;
     }
     $AppWebPage = new AppWebPage();
-    $tvShowId = $_GET['tvShowId'];
+    $tvShowId = (int) $_GET['tvShowId'];
 
-    $tvShow = TVShow::findById((int)$tvShowId);
+    $tvShow = TVShow::findById($tvShowId);
     $seasons = $tvShow->getSeasons();
 
     $AppWebPage->appendContent("<img src='poster.php?posterId={$tvShow->getPosterId()}'> <div>{$tvShow->getName()}{$tvShow->getOriginalName()}{$tvShow->getOverview()}");
