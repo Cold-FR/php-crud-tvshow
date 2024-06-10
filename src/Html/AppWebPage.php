@@ -1,0 +1,72 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Html;
+
+use Html\WebPage;
+
+class AppWebPage extends WebPage
+{
+    private string $menu;
+
+    public function __construct(string $title = '')
+    {
+        parent::__construct($title);
+        $this->menu = '';
+
+        $this->appendCssUrl('/css/style.css');
+    }
+
+    /**
+     * Return the content of the menu.
+     * @return string The content of the menu.
+     */
+    public function getMenu(): string
+    {
+        return $this->menu;
+    }
+
+    /**
+     * Add content to the menu.
+     * @param string $menu The content to add.
+     */
+    public function appendContentMenu(string $menu): void
+    {
+        $this->menu .= $menu;
+    }
+
+    /**
+     * Return and generate the HTML structure of the page.
+     * @return string The HTML structure of the page.
+     */
+    public function toHTML(): string
+    {
+        $lastModif = self::getLastModification();
+        return <<<HTML
+            <!DOCTYPE html>
+            <html lang="fr">
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta charset="UTF-8">
+                <title>{$this->getTitle()}</title>
+                {$this->getHead()}
+            </head>
+            <body>
+                <header class="header">
+                    <h1>{$this->getTitle()}</h1>
+                </header>
+                <nav class="menu">
+                {$this->getMenu()}
+                </nav>
+                <main class="content">
+                    {$this->getBody()}
+                </main>
+                <footer class="footer">
+                    <p>Dernière modification : $lastModif</p>
+                </footer>
+            </body>
+            </html>
+            HTML;
+    }
+}
