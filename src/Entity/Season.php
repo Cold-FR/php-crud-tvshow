@@ -14,7 +14,7 @@ class Season
     private string $name;
     private int $seasonNumber;
     private int $posterId;
-    
+
     public function getId(): int
     {
         return $this->id;
