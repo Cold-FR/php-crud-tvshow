@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
-use Entity\Collection\AlbumCollection;
 use Entity\Collection\SeasonCollection;
 use Entity\Exception\EntityNotFoundException;
 
