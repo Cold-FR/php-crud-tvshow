@@ -50,11 +50,12 @@ class Season
             SQL
         );
         $stmtSeason->execute(['id' => $id]);
-        $SeasonIdData = $stmtSeason->fetchObject(Season::class);
+        $season = $stmtSeason->fetchObject(Season::class);
 
-        if(!$SeasonIdData) {
-            throw new EntityNotFoundException("La saison $id n'a pas été trouvée");
+        if ($season === false) {
+            throw new EntityNotFoundException("Il n'existe aucune saison avec l'identifiant $id.");
         }
-        return $SeasonIdData;
+
+        return $season;
     }
 }
