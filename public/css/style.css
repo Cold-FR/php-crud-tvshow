@@ -63,10 +63,7 @@ body {
     display: flex;
     gap: 20px;
     align-items: center;
-}
-
-.list-element:nth-child(2n) {
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
 .img-poster {
@@ -74,16 +71,35 @@ body {
     height: 231px;
 }
 
+.list-element-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .list-element-title {
+    margin: 0;
     text-decoration: underline;
 }
 
 .list-element-overview {
+    margin: 0;
     color: #000;
+    text-align: justify;
 }
 
 .footer {
     padding: 0 10px;
     display: flex;
     align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+    .list-element {
+        flex-direction: row;
+    }
+
+    .list-element:nth-child(2n) {
+        flex-direction: row-reverse;
+    }
 }
