@@ -9,6 +9,7 @@ use Html\AppWebPage;
 
 try {
     $appWebPage = new AppWebPage("Séries TV");
+    $appWebPage->appendCssUrl('/css/index.css');
 
     $genreId = null;
     if (!empty($_GET['showGenre']) && ctype_digit($_GET['showGenre'])) {
