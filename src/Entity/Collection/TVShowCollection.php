@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Entity\Collection;
 
 use Database\MyPdo;
+use Entity\Genre;
 use Entity\TVShow;
 use PDO;
 
@@ -26,6 +27,7 @@ class TVShowCollection
 
     public static function findByGenreId(int $genreId): array
     {
+        $genre = Genre::findById($genreId);
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
             SELECT *
