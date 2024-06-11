@@ -45,7 +45,9 @@ try {
                 <img class="img-poster" src='poster.php?posterId={$season->getPosterId()}' alt="Affiche de $seasonName">
                 <div class="list-element-info">
                     <h4 class="list-element-title">
-                    $seasonName
+                    <a href="season.php?seasonId={$season->getId()}">
+                        $seasonName
+                    </a>
                     </h4>
                 </div>   
             </div>
