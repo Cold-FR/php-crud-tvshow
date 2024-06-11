@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Collection\EpisodeCollection;
 use Entity\Exception\EntityNotFoundException;
 
 class Season
@@ -40,7 +41,7 @@ class Season
         return $this->posterId;
     }
 
-    public function findById(int $id): Season
+    public static function findById(int $id): Season
     {
         $stmtSeason = MyPDO::getInstance()->prepare(
             <<<'SQL'
@@ -57,5 +58,9 @@ class Season
         }
 
         return $season;
+    }
+    public function getEpisodes(): array
+    {
+        return EpisodeCollection::findBySeasonId($this->id);
     }
 }
