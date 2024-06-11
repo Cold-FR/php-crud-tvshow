@@ -28,7 +28,6 @@ body {
 .header {
     display: flex;
     justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
@@ -64,6 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    list-style-type: none;
 }
 
 .list-element {
@@ -73,6 +73,11 @@ body {
     gap: 20px;
     align-items: center;
     flex-direction: column;
+}
+
+a.list-element:hover {
+    transition: .1s;
+    opacity: .7;
 }
 
 .img-poster {
