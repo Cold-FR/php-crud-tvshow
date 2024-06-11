@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Html\Form;
 
 use Entity\TVShow;
+use Exception\ParameterException;
 use Html\StringEscaper;
 
 class TVShowForm
@@ -61,5 +62,27 @@ class TVShowForm
                 <input type="submit" value="Enregistrer"/>
             </form>
         HTML;
+    }
+
+    public function setEntityFromQueryString(): void
+    {
+        $tvShowId = null;
+        if (!empty($_POST['id']) && ctype_digit($_POST['id'])) {
+            $tvShowId = (int) $_POST['id'];
+        }
+
+        if (empty($_POST['name']) || empty($_POST['originalName']) || empty($_POST['homepage'])
+            || empty($_POST['overview'])) {
+            throw new ParameterException("Un des champs n'a pas été complété.");
+        }
+
+        $this->tvShow = TVShow::create(
+            $this->stripTagsAndTrim($_POST['name']),
+            $this->stripTagsAndTrim($_POST['originalName']),
+            $this->stripTagsAndTrim($_POST['homepage']),
+            $this->stripTagsAndTrim($_POST['overview']),
+            empty($_POST['posterId']) ? null : (int) $_POST['posterId'],
+            $tvShowId
+        );
     }
 }
