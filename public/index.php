@@ -16,7 +16,7 @@ try {
     foreach ($tvShows as $tvShow) {
         $appWebPage->appendContent(
             <<<HTML
-            <a href="tvshow.php?tvShowId={$tvShow->getId()}" class="list-element">
+            <li class="list-element">
                 <img class="img-poster" src='poster.php?posterId={$tvShow->getPosterId()}' alt="Affiche de {$tvShow->getName()}">
                 <div class="list-element-info">
                     <h3 class="list-element-title">
@@ -28,7 +28,7 @@ try {
                         {$appWebPage->escapeString($tvShow->getOverview())}
                     </p>
                 </div>
-            </a>
+            </li>
             HTML
         );
     }
