@@ -30,14 +30,14 @@ try {
         <div class="list-element head-page">
                 <img class="img-poster" src='poster.php?posterId={$season->getPosterId()}' alt="Affiche de $seasonName">
                 <div class="list-element-info">
-                    <h3 class="list-element-title">
+                    <h2 class="list-element-title">
                         <a href="tvshow.php?tvShowId={$season->getTvShowId()}">
                             $tvShowName
                         </a>
-                    </h3>
-                    <h3 class="list-element-title">
+                    </h2>
+                    <h2 class="list-element-title">
                         $seasonName
-                    </h3>
+                    </h2>
                 </div>
         </div>
         HTML
@@ -52,12 +52,12 @@ try {
             <div class="list-element">
                 <div class="list-element-info">
                     <div class="list-episode-head">
-                        <h4 class="list-element-title">
+                        <h3 class="list-element-title">
                             Épisode {$episode->getEpisodeNumber()}
-                        </h4>
-                        <h4 class="list-element-title">
+                        </h3>
+                        <h3 class="list-element-title">
                             $episodeName
-                        </h4>
+                        </h3>
                     </div>
                     <p class="list-element-overview">
                         $episodeOverview
