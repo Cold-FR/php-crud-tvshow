@@ -11,6 +11,12 @@ try {
     $appWebPage = new AppWebPage("Séries TV");
     $appWebPage->appendCssUrl('/css/index.css');
 
+    $appWebPage->appendContentMenu(
+        <<<HTML
+        <a href="/admin/tvshow-form.php">Ajouter une série TV</a>
+        HTML
+    );
+
     $genreId = null;
     if (!empty($_GET['showGenre']) && ctype_digit($_GET['showGenre'])) {
         $genreId = (int) $_GET['showGenre'];
