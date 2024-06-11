@@ -17,11 +17,12 @@ try {
     $seasonId = (int)$_GET['seasonId'];
 
     $season = Season::findById($seasonId);
+    $tvShowName = TVShow::findById($season->getTvShowId())->getName();
     $seasonName = $appWebPage->escapeString($season->getName());
-    $appWebPage->setTitle("Séries TV : {$seasonName}");
+    $appWebPage->setTitle("Séries TV : {$tvShowName} {$seasonName}");
 
     $episodes = $season->getEpisodes();
-    $tvShow = TVShow::findById($season->getTvShowId());
+
 
     $appWebPage->appendContent(
         <<<HTML
