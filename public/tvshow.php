@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Entity\Exception\EntityNotFoundException;
 use Entity\TVShow;
 use Exception\ParameterException;
 use Html\AppWebPage;
@@ -56,7 +57,7 @@ try {
     $appWebPage->appendContent('</ul>');
 
     echo $appWebPage->toHTML();
-} catch (ParameterException) {
+} catch (ParameterException|EntityNotFoundException) {
     header('Location: index.php');
 } catch (Exception) {
     http_response_code(500);
