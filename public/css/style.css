@@ -7,7 +7,13 @@ html, body {
     height: 100%;
 }
 
+html {
+    display: flex;
+    justify-content: center;
+}
+
 body {
+    max-width: 1200px;
     margin: 0;
     padding: 20px;
     display: flex;
