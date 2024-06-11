@@ -10,7 +10,7 @@ use Entity\Exception\EntityNotFoundException;
 
 class TVShow
 {
-    private int $id;
+    private ?int $id;
     private string $name;
     private string $originalName;
     private string $homepage;
@@ -47,6 +47,46 @@ class TVShow
         return $this->posterId;
     }
 
+    public function getSeasons(): array
+    {
+        return SeasonCollection::findByTvShowId($this->id);
+    }
+
+    public function setId(?int $id): TVShow
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function setName(string $name): TVShow
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setOriginalName(string $originalName): TVShow
+    {
+        $this->originalName = $originalName;
+        return $this;
+    }
+
+    public function setHomepage(string $homepage): TVShow
+    {
+        $this->homepage = $homepage;
+        return $this;
+    }
+
+    public function setOverview(string $overview): TVShow
+    {
+        $this->overview = $overview;
+        return $this;
+    }
+
+    public function setPosterId(int $posterId): TVShow
+    {
+        $this->posterId = $posterId;
+        return $this;
+    }
     public static function findById(int $id): TVShow
     {
         $stmt = MyPdo::getInstance()->prepare(
