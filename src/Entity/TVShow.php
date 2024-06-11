@@ -15,7 +15,7 @@ class TVShow
     private string $originalName;
     private string $homepage;
     private string $overview;
-    private int $posterId;
+    private ?int $posterId;
 
     public function getId(): int
     {
@@ -42,7 +42,7 @@ class TVShow
         return $this->overview;
     }
 
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
@@ -82,7 +82,7 @@ class TVShow
         return $this;
     }
 
-    public function setPosterId(int $posterId): TVShow
+    public function setPosterId(?int $posterId): TVShow
     {
         $this->posterId = $posterId;
         return $this;
@@ -159,7 +159,7 @@ class TVShow
         string $originalName,
         string $homepage,
         string $overview,
-        int $posterId,
+        ?int $posterId,
         ?int $id = null
     ): TVShow {
         $tvShow = new TVShow();
