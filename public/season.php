@@ -15,12 +15,13 @@ try {
     }
 
     $appWebPage = new AppWebPage();
+    $appWebPage->appendCssUrl('/css/season.css');
     $seasonId = (int)$_GET['seasonId'];
 
     $season = Season::findById($seasonId);
     $tvShowName = TVShow::findById($season->getTvShowId())->getName();
     $seasonName = $appWebPage->escapeString($season->getName());
-    $appWebPage->setTitle("Séries TV : {$tvShowName} {$seasonName}");
+    $appWebPage->setTitle("Séries TV : {$tvShowName} - {$seasonName}");
 
     $episodes = $season->getEpisodes();
 
@@ -31,7 +32,9 @@ try {
                 <img class="img-poster" src='poster.php?posterId={$season->getPosterId()}' alt="Affiche de $seasonName">
                 <div class="list-element-info">
                     <h3 class="list-element-title">
-                        $tvShowName
+                        <a href="tvshow.php?tvShowId={$season->getTvShowId()}">
+                            $tvShowName
+                        </a>
                     </h3>
                     <h3 class="list-element-title">
                         $seasonName
@@ -41,7 +44,7 @@ try {
         HTML
     );
 
-    $appWebPage->appendContent('<ul class="list seasons">');
+    $appWebPage->appendContent('<ul class="list episodes">');
     foreach ($episodes as $episode) {
         $episodeName = $appWebPage->escapeString($episode->getName());
         $episodeOverview = $appWebPage->escapeString($episode->getOverview());
@@ -49,11 +52,17 @@ try {
             <<<HTML
             <div class="list-element">
                 <div class="list-element-info">
-                    <h4 class="list-element-title">
-                    $episodeName
-                    {$episode->getEpisodeNumber()}
-                    $episodeOverview
-                    </h4>
+                    <div class="list-episode-head">
+                        <h4 class="list-element-title">
+                            Épisode {$episode->getEpisodeNumber()}
+                        </h4>
+                        <h4 class="list-element-title">
+                            $episodeName
+                        </h4>
+                    </div>
+                    <p class="list-element-overview">
+                        $episodeOverview
+                    </p>
                 </div>   
             </div>
             HTML

@@ -1,0 +1,22 @@
+.list.episodes {
+    padding: 10px 0;
+}
+
+.list-episode-head {
+    display: flex;
+    gap: 10px;
+}
+
+.head-page .list-element-title {
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    .head-page {
+        align-items: unset;
+    }
+
+    .head-page .list-element-title {
+        text-align: right;
+    }
+}
