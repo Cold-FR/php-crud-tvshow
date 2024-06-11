@@ -8,7 +8,7 @@ use Exception\ParameterException;
 use Html\AppWebPage;
 
 try {
-    if(empty($_GET['tvShowId']) || !is_numeric($_GET['tvShowId'])) {
+    if(empty($_GET['tvShowId']) || !ctype_digit($_GET['tvShowId'])) {
         throw new ParameterException("L'identifiant entré pour la série est invalide.");
     }
 

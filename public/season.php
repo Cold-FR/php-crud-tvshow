@@ -10,7 +10,7 @@ use Exception\ParameterException;
 use Html\AppWebPage;
 
 try {
-    if (empty($_GET['seasonId']) || !is_numeric($_GET['seasonId'])) {
+    if (empty($_GET['seasonId']) || !ctype_digit($_GET['seasonId'])) {
         throw new ParameterException("L'identifiant entré pour la saison est invalide.");
     }
 
