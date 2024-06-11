@@ -7,33 +7,35 @@ use Entity\Exception\EntityNotFoundException;
 use Html\AppWebPage;
 
 try {
-    $webPage = new AppWebPage("Séries TV");
+    $appWebPage = new AppWebPage("Séries TV");
 
     $tvShows = TVShowCollection::findAll();
 
-    $webPage->appendContent('<ul class="list">');
+    $appWebPage->appendContent('<ul class="list">');
 
     foreach ($tvShows as $tvShow) {
-        $webPage->appendContent(
+        $appWebPage->appendContent(
             <<<HTML
-            <a href="tvshow.php?tvShowId={$tvShow->getId()}" class="list-element">
+            <li class="list-element">
                 <img class="img-poster" src='poster.php?posterId={$tvShow->getPosterId()}' alt="Affiche de {$tvShow->getName()}">
                 <div class="list-element-info">
                     <h3 class="list-element-title">
-                        {$webPage->escapeString($tvShow->getName())}
+                        <a href="tvshow.php?tvShowId={$tvShow->getId()}">
+                            {$appWebPage->escapeString($tvShow->getName())}
+                        </a>
                     </h3>
                     <p class="list-element-overview">
-                        {$webPage->escapeString($tvShow->getOverview())}
+                        {$appWebPage->escapeString($tvShow->getOverview())}
                     </p>
                 </div>
-            </a>
+            </li>
             HTML
         );
     }
 
-    $webPage->appendContent('</ul>');
+    $appWebPage->appendContent('</ul>');
 
-    echo $webPage->toHTML();
+    echo $appWebPage->toHTML();
 } catch (EntityNotFoundException) {
     http_response_code(404);
 } catch (Exception) {
