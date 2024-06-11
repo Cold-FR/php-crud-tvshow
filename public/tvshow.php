@@ -41,7 +41,7 @@ try {
     foreach ($seasons as $season) {
         $seasonName = $appWebPage->escapeString($season->getName());
         $appWebPage->appendContent(<<<HTML
-            <div class="list-element">
+            <li class="list-element">
                 <img class="img-poster" src='poster.php?posterId={$season->getPosterId()}' alt="Affiche de $seasonName">
                 <div class="list-element-info">
                     <h4 class="list-element-title">
@@ -50,7 +50,7 @@ try {
                     </a>
                     </h4>
                 </div>   
-            </div>
+            </li>
             HTML);
     }
     $appWebPage->appendContent('</ul>');
