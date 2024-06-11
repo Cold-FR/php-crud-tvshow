@@ -117,8 +117,4 @@ a.list-element:hover {
     .list-element {
         flex-direction: row;
     }
-
-    .list:not(.seasons) .list-element:nth-child(2n) {
-        flex-direction: row-reverse;
-    }
 }
