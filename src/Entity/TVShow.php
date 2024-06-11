@@ -109,18 +109,18 @@ class TVShow
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
             UPDATE tvshow
-            SET name = :name, originalName = :og, homepage = : hp, overview = :overview, posterId = :pId
+            SET name = :name, originalName = :og, homepage = :hp, overview = :overview, posterId = :pId
             WHERE id = :id
             SQL
         );
 
         $stmt->execute([
-            $this->name,
-            $this->originalName,
-            $this->homepage,
-            $this->overview,
-            $this->posterId,
-            $this->id
+            'name' => $this->name,
+            'og' => $this->originalName,
+            'hp' => $this->homepage,
+            'overview' => $this->overview,
+            'pId' => $this->posterId,
+            'id' => $this->id
         ]);
 
         return $this;
