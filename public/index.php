@@ -63,7 +63,7 @@ try {
 
     echo $appWebPage->toHTML();
 } catch (EntityNotFoundException) {
-    http_response_code(404);
+    header('Location: /');
 } catch (Exception) {
     http_response_code(500);
 }
