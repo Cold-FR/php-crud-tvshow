@@ -17,6 +17,7 @@ class SeasonCollection
             SELECT *
             FROM season
             WHERE tvShowId=:id
+            ORDER BY seasonNumber
             SQL
         );
         $stmtSeason->execute(['id' => $tvShowId]);
