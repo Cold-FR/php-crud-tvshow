@@ -87,6 +87,89 @@ class TVShow
         $this->posterId = $posterId;
         return $this;
     }
+
+    public function delete(): TVShow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+            DELETE
+            FROM tvshow
+            WHERE id = ?
+            SQL
+        );
+        $stmt->execute([$this->id]);
+
+        $this->id = null;
+
+        return $this;
+    }
+
+    public function update(): TVShow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+            UPDATE tvshow
+            SET name = :name, originalName = :og, homepage = : hp, overview = :overview, posterId = :pId
+            WHERE id = :id
+            SQL
+        );
+
+        $stmt->execute([
+            $this->name,
+            $this->originalName,
+            $this->homepage,
+            $this->overview,
+            $this->posterId,
+            $this->id
+        ]);
+
+        return $this;
+    }
+
+    public function insert(): TVShow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+            INSERT INTO
+            tvshow(name,originalName,homepage,overview,posterId)
+            VALUES(?,?,?,?,?)
+            SQL
+        );
+
+        $stmt->execute([$this->name, $this->originalName, $this->homepage, $this->overview, $this->posterId]);
+
+        $lastId = (int) MyPdo::getInstance()->lastInsertId();
+
+        return $this->setId($lastId);
+    }
+
+    public function save(): TVShow
+    {
+        if ($this->id === null) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+
+        return $this;
+    }
+
+    public static function create(
+        string $name,
+        string $originalName,
+        string $homepage,
+        string $overview,
+        int $posterId,
+        ?int $id = null
+    ): TVShow {
+        $tvShow = new TVShow();
+        $tvShow->setId($id)->setName($name)
+            ->setOriginalName($originalName)->setHomepage($homepage)
+            ->setOverview($overview)->setPosterId($posterId);
+
+        return $tvShow;
+    }
+
     public static function findById(int $id): TVShow
     {
         $stmt = MyPdo::getInstance()->prepare(
@@ -106,10 +189,5 @@ class TVShow
         }
 
         return $tvShow;
-    }
-
-    public function getSeasons(): array
-    {
-        return SeasonCollection::findByTvShowId($this->id);
     }
 }
