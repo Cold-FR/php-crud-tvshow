@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 use Entity\Exception\EntityNotFoundException;
 use Entity\Season;
 use Entity\TVShow;
