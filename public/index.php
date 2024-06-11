@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Entity\Collection\GenreCollection;
 use Entity\Collection\TVShowCollection;
 use Entity\Exception\EntityNotFoundException;
 use Html\AppWebPage;
@@ -9,10 +10,36 @@ use Html\AppWebPage;
 try {
     $appWebPage = new AppWebPage("Séries TV");
 
-    $tvShows = TVShowCollection::findAll();
+    $genreId = null;
+    if (!empty($_GET['showGenre']) && ctype_digit($_GET['showGenre'])) {
+        $genreId = (int) $_GET['showGenre'];
+    }
+
+    if (is_null($genreId)) {
+        $tvShows = TVShowCollection::findAll();
+    } else {
+        $tvShows = TVShowCollection::findByGenreId($genreId);
+    }
+
+    $showGenres = GenreCollection::findAll();
+    $appWebPage->appendContent(
+        <<<HTML
+        <div class="menu filter-show">
+            <a href="/">Tout</a>
+        HTML
+    );
+    foreach ($showGenres as $showGenre) {
+        $appWebPage->appendContent(
+            <<<HTML
+            <a href="/?showGenre={$showGenre->getId()}">
+                {$showGenre->getName()}
+            </a>    
+            HTML
+        );
+    }
+    $appWebPage->appendContent('</div>');
 
     $appWebPage->appendContent('<ul class="list">');
-
     foreach ($tvShows as $tvShow) {
         $appWebPage->appendContent(
             <<<HTML
@@ -32,12 +59,11 @@ try {
             HTML
         );
     }
-
     $appWebPage->appendContent('</ul>');
 
     echo $appWebPage->toHTML();
 } catch (EntityNotFoundException) {
-    http_response_code(404);
+    header('Location: /');
 } catch (Exception) {
     http_response_code(500);
 }
