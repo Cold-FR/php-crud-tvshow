@@ -30,7 +30,7 @@ try {
                 <img class="img-poster" src='poster.php?posterId={$season->getPosterId()}' alt="Affiche de $seasonName">
                 <div class="list-element-info">
                     <h3 class="list-element-title">
-                        {$tvShow->getName()}
+                        $tvShowName
                     </h3>
                     <h3 class="list-element-title">
                         $seasonName
