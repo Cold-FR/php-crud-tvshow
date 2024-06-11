@@ -13,6 +13,7 @@ class TVShow
     private int $id;
     private string $name;
     private string $originalName;
+    private string $homepage;
     private string $overview;
     private int $posterId;
 
@@ -29,6 +30,11 @@ class TVShow
     public function getOriginalName(): string
     {
         return $this->originalName;
+    }
+
+    public function getHomepage(): string
+    {
+        return $this->homepage;
     }
 
     public function getOverview(): string
