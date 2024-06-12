@@ -25,10 +25,6 @@ try {
     $tvShowHomepage = $appWebPage->escapeString($tvShow->getHomepage());
 
     $appWebPage->setTitle("Séries TV : {$tvShowName} - {$seasonName}");
-
-    $episodes = $season->getEpisodes();
-
-
     $appWebPage->appendContent(
         <<<HTML
         <div class="list-element head-page">
@@ -48,7 +44,7 @@ try {
     );
 
     $appWebPage->appendContent('<ul class="list episodes">');
-    foreach ($episodes as $episode) {
+    foreach ($season->getEpisodes() as $episode) {
         $episodeName = $appWebPage->escapeString($episode->getName());
         $episodeOverview = $appWebPage->escapeString($episode->getOverview());
         $appWebPage->appendContent(
