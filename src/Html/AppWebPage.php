@@ -31,7 +31,7 @@ class AppWebPage extends WebPage
      * Add content to the menu.
      * @param string $menu The content to add.
      */
-    public function appendContentMenu(string $menu): void
+    public function appendToMenu(string $menu): void
     {
         $this->menu .= $menu;
     }
