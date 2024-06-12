@@ -23,10 +23,6 @@ class AppWebPage extends WebPage
         );
     }
 
-    /**
-     * Return the content of the menu.
-     * @return string The content of the menu.
-     */
     public function getMenu(): string
     {
         return $this->menu;
