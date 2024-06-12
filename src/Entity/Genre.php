@@ -28,10 +28,10 @@ class Genre
             <<<'SQL'
             SELECT id, name
             FROM genre
-            WHERE id = ?
+            WHERE id = :id
             SQL
         );
-        $stmt->execute([$id]);
+        $stmt->execute(['id' => $id]);
 
         $genre = $stmt->fetchObject(self::class);
 
