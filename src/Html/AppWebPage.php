@@ -54,6 +54,7 @@ class AppWebPage extends WebPage
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta charset="UTF-8">
+                <meta name="description" content="Site Web de consultation et d'édition de séries TVs.">
                 <link rel="icon" href="favicon.ico" type="image/x-icon">
                 <title>{$this->getTitle()}</title>
                 {$this->getHead()}
