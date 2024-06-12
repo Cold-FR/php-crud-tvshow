@@ -1,3 +1,4 @@
+actor: CrudTester
 modules:
     enabled:
         - \Tests\Helper\Crud
