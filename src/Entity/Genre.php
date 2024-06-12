@@ -22,6 +22,12 @@ class Genre
         return $this->name;
     }
 
+    /**
+     * Find a genre by its ID.
+     * @param int $id The ID of the genre.
+     * @return Genre The genre instance.
+     * @throws EntityNotFoundException If no genre is found with the given ID.
+     */
     public static function findById(int $id): Genre
     {
         $stmt = MyPdo::getInstance()->prepare(
