@@ -26,14 +26,15 @@ class TVShowForm
 
     public function getHtmlForm(string $action): string
     {
-        $showName = $this?->getTVShow()?->getName();
-        $showOriginalName = $this?->getTVShow()?->getOriginalName();
-        $showHomepage = $this?->getTVShow()?->getHomepage();
-        $showOverview = $this?->getTVShow()?->getOverview();
+        $showName = $this->getTVShow()?->getName();
+        $showOriginalName = $this->getTVShow()?->getOriginalName();
+        $showHomepage = $this->getTVShow()?->getHomepage();
+        $showOverview = $this->getTVShow()?->getOverview();
+
         return <<<HTML
             <form action="$action" method="post">
                 <input type="hidden" name="id" 
-                        value="{$this?->getTVShow()?->getId()}"/>
+                        value="{$this->getTVShow()?->getId()}"/>
                 <label>
                     Nom
                     <input type="text" name="name" 
@@ -57,7 +58,7 @@ class TVShowForm
                 <label>
                     Identifiant de l'affiche
                     <input type="number" name="posterId" 
-                        value="{$this?->getTVShow()?->getPosterId()}"/>
+                        value="{$this->getTVShow()?->getPosterId()}"/>
                 </label>
                 <input type="submit" value="Enregistrer"/>
             </form>

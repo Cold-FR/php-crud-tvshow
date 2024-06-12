@@ -18,28 +18,24 @@ try {
     );
 
     $genreId = null;
-    if (!empty($_GET['showGenre']) && ctype_digit($_GET['showGenre'])) {
-        $genreId = (int) $_GET['showGenre'];
-    }
-
-    if (is_null($genreId)) {
-        $tvShows = TVShowCollection::findAll();
-    } else {
+    if (!empty($_GET['genreId']) && ctype_digit($_GET['genreId'])) {
+        $genreId = (int) $_GET['genreId'];
         $tvShows = TVShowCollection::findByGenreId($genreId);
+    } else {
+        $tvShows = TVShowCollection::findAll();
     }
 
-    $showGenres = GenreCollection::findAll();
     $appWebPage->appendContent(
         <<<HTML
         <div class="menu filter-show">
             <a href="/">Tout</a>
         HTML
     );
-    foreach ($showGenres as $showGenre) {
+    foreach (GenreCollection::findAll() as $genre) {
         $appWebPage->appendContent(
             <<<HTML
-            <a href="/?showGenre={$showGenre->getId()}">
-                {$showGenre->getName()}
+            <a href="/?genreId={$genre->getId()}">
+                {$genre->getName()}
             </a>    
             HTML
         );
