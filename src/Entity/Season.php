@@ -63,4 +63,9 @@ class Season
     {
         return EpisodeCollection::findBySeasonId($this->id);
     }
+
+    public function getTvShow(): TVShow
+    {
+        return TVShow::findById($this->tvShowId);
+    }
 }
