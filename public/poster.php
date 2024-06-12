@@ -11,12 +11,13 @@ try {
         throw new ParameterException("L'identifiant entré pour l'affiche est invalide.");
     }
 
-    header('Content-Type: image/jpeg');
-
     $posterId = (int) $_GET['posterId'];
 
     $posterData = Poster::findById($posterId);
 
+    header("Cache-Control: private, max-age=10800, pre-check=10800");
+    header("Pragma: private");
+    header('Content-Type: image/jpeg');
     echo $posterData->getJpeg();
 } catch (ParameterException|EntityNotFoundException) {
     header('Location: /img/default.png', response_code: 302);
