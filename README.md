@@ -18,6 +18,10 @@ En cas de besoin, pour recharger l'auto-chargement des classes, il suffit de lan
 composer dump-autoload
 ```
 
+### Jeu de données
+
+Importer le jeu de données contenu dans le fichier `jonque01_tvshow.sql` dans la base de données.
+
 ### Configuration de la base de données
 
 Pour configurer la base de données, il suffit de créer un fichier `.mypdo.ini` à la racine du projet avec le contenu suivant, en remplaçant les `...` par les valeurs correspondantes :
