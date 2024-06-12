@@ -1,8 +1,11 @@
 <?php
+
 namespace Tests\Crud;
+
 use Entity\Exception\EntityNotFoundException;
 use Entity\TVShow;
 use Tests\CrudTester;
+
 class TVShowCest
 {
     public function findById(CrudTester $I): void
