@@ -94,10 +94,10 @@ class TVShow
             <<<'SQL'
             DELETE
             FROM tvshow
-            WHERE id = ?
+            WHERE id = :id
             SQL
         );
-        $stmt->execute([$this->id]);
+        $stmt->execute(['id' => $this->id]);
 
         $this->id = null;
 
@@ -132,11 +132,17 @@ class TVShow
             <<<'SQL'
             INSERT INTO
             tvshow(name,originalName,homepage,overview,posterId)
-            VALUES(?,?,?,?,?)
+            VALUES(:name,:originalName,:homepage,:overview,:posterId)
             SQL
         );
 
-        $stmt->execute([$this->name, $this->originalName, $this->homepage, $this->overview, $this->posterId]);
+        $stmt->execute([
+            'name' => $this->name,
+            'originalName' => $this->originalName,
+            'homepage' => $this->homepage,
+            'overview' => $this->overview,
+            'posterId' => $this->posterId
+        ]);
 
         $lastId = (int) MyPdo::getInstance()->lastInsertId();
 
@@ -176,11 +182,11 @@ class TVShow
             <<<'SQL'
             SELECT id, name, originalName, homepage, overview, posterId
             FROM tvshow
-            WHERE id = ?
+            WHERE id = :id
             SQL
         );
 
-        $stmt->execute([$id]);
+        $stmt->execute(['id' => $id]);
 
         $tvShow = $stmt->fetchObject(self::class);
 
