@@ -26,7 +26,7 @@ class Genre
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT id, name
             FROM genre
             WHERE id = ?
             SQL
