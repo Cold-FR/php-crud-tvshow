@@ -16,7 +16,7 @@ try {
 
     $tvShowId = (int) $_GET['tvShowId'];
 
-    $appWebPage->appendContentMenu(
+    $appWebPage->appendToMenu(
         <<<HTML
         <a href="/">Retourner à l'accueil</a>
          <a href="/admin/tvshow-form.php?tvShowId=$tvShowId">Modifier la série TV</a>
