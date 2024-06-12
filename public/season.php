@@ -35,7 +35,7 @@ try {
                 <img class="img-poster" src='poster.php?posterId={$season->getPosterId()}' alt="Affiche de $seasonName">
                 <div class="list-element-info">
                     <h2 class="list-element-title">
-                        <a href="tvshow.php?tvShowId={$season->getTvShowId()}">
+                        <a href="$tvShowHomepage" target="_blank">
                             $tvShowName
                         </a>
                     </h2>
