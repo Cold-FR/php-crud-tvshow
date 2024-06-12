@@ -11,7 +11,7 @@ try {
     $appWebPage = new AppWebPage("Séries TV");
     $appWebPage->appendCssUrl('/css/index.css');
 
-    $appWebPage->appendContentMenu(
+    $appWebPage->appendToMenu(
         <<<HTML
         <a href="/admin/tvshow-form.php">Ajouter une série TV</a>
         HTML

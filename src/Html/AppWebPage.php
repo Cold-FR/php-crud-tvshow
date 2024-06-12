@@ -16,6 +16,11 @@ class AppWebPage extends WebPage
         $this->menu = '';
 
         $this->appendCssUrl('/css/style.css');
+        $this->appendToMenu(
+            <<<HTML
+            <a href="/">Accueil</a>
+            HTML
+        );
     }
 
     /**
