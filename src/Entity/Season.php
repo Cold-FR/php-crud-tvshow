@@ -47,7 +47,7 @@ class Season
             <<<'SQL'
             SELECT id, tvShowId, name, seasonNumber, posterId
             FROM season
-            WHERE id=:id 
+            WHERE id = :id 
             SQL
         );
         $stmtSeason->execute(['id' => $id]);

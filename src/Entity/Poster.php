@@ -28,10 +28,10 @@ class Poster
             <<<'SQL'
             SELECT id, jpeg
             FROM poster
-            WHERE id = ?
+            WHERE id = :id
             SQL
         );
-        $stmt ->execute([$id]);
+        $stmt ->execute(['id' => $id]);
 
         $poster = $stmt->fetchObject(self::class);
 
