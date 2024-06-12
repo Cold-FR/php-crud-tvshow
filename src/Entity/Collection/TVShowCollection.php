@@ -15,7 +15,7 @@ class TVShowCollection
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT id, name, originalName, homepage, overview, posterId
             FROM tvshow
             ORDER BY name
             SQL
@@ -28,9 +28,10 @@ class TVShowCollection
     public static function findByGenreId(int $genreId): array
     {
         $genre = Genre::findById($genreId);
+
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT id, name, originalName, homepage, overview, posterId
             FROM tvshow
             WHERE id IN (SELECT tvShowId 
                          FROM tvshow_genre

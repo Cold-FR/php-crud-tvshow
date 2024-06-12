@@ -174,7 +174,7 @@ class TVShow
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
-            SELECT * 
+            SELECT id, name, originalName, homepage, overview, posterId
             FROM tvshow
             WHERE id = ?
             SQL

@@ -14,12 +14,13 @@ class EpisodeCollection
     {
         $stmtEpisode = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT id, seasonId, name, overview, episodeNumber
             FROM episode
-            WHERE seasonId=:id
+            WHERE seasonId = :id
             SQL
         );
         $stmtEpisode->execute(['id' => $seasonId]);
+
         return $stmtEpisode->fetchAll(PDO::FETCH_CLASS, Episode::class);
     }
 }

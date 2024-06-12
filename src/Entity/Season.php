@@ -45,14 +45,14 @@ class Season
     {
         $stmtSeason = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT id, tvShowId, name, seasonNumber, posterId
             FROM season
             WHERE id=:id 
             SQL
         );
         $stmtSeason->execute(['id' => $id]);
-        $season = $stmtSeason->fetchObject(Season::class);
 
+        $season = $stmtSeason->fetchObject(Season::class);
         if ($season === false) {
             throw new EntityNotFoundException("Il n'existe aucune saison avec l'identifiant $id.");
         }
