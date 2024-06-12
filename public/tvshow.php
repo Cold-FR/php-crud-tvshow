@@ -27,8 +27,6 @@ try {
     $tvShowName = $appWebPage->escapeString($tvShow->getName());
     $appWebPage->setTitle("Séries TV : {$tvShowName}");
 
-    $seasons = $tvShow->getSeasons();
-
     $appWebPage->appendContent(<<<HTML
         <div class="list-element head-page">
                 <img class="img-poster" src='poster.php?posterId={$tvShow->getPosterId()}' alt="Affiche de $tvShowName">
@@ -47,7 +45,7 @@ try {
         HTML);
 
     $appWebPage->appendContent('<ul class="list seasons">');
-    foreach ($seasons as $season) {
+    foreach ($tvShow->getSeasons() as $season) {
         $seasonName = $appWebPage->escapeString($season->getName());
         $appWebPage->appendContent(<<<HTML
             <li>
