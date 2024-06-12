@@ -18,6 +18,10 @@ En cas de besoin, pour recharger l'auto-chargement des classes, il suffit de lan
 composer dump-autoload
 ```
 
+### Jeu de données
+
+Importer le jeu de données contenu dans le fichier `jonque01_tvshow.sql` dans la base de données.
+
 ### Configuration de la base de données
 
 Pour configurer la base de données, il suffit de créer un fichier `.mypdo.ini` à la racine du projet avec le contenu suivant, en remplaçant les `...` par les valeurs correspondantes :
@@ -59,4 +63,24 @@ composer test:cs
 - Commande pour corriger le style de codage et appliquer les changements : 
 ```shell
 composer fix:cs
+```
+
+## Tests
+
+Pour lancer les tests, on utilise Codeception :
+- Commande pour lancer tous les tests :
+```shell
+composer test # Lance les tests Codeception et PHP CS Fixer
+```
+- Commande pour lancer les tests Codeception :
+```shell
+composer test:codecept # Lance les tests Codeception
+```
+- Commande pour lancer les tests Crud :
+```shell
+composer test:crud # Lance les tests Crud
+```
+- Commande pour lancer les tests Browse :
+```shell
+composer test:browse # Lance les tests Browse
 ```
