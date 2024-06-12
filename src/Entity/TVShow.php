@@ -169,9 +169,12 @@ class TVShow
         ?int $id = null
     ): TVShow {
         $tvShow = new TVShow();
-        $tvShow->setId($id)->setName($name)
-            ->setOriginalName($originalName)->setHomepage($homepage)
-            ->setOverview($overview)->setPosterId($posterId);
+        $tvShow->setId($id)
+            ->setName($name)
+            ->setOriginalName($originalName)
+            ->setHomepage($homepage)
+            ->setOverview($overview)
+            ->setPosterId($posterId);
 
         return $tvShow;
     }
