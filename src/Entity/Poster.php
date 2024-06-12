@@ -22,6 +22,12 @@ class Poster
         return $this->jpeg;
     }
 
+    /**
+     * Find a poster by its ID.
+     * @param int $id The ID of the poster.
+     * @return Poster The poster instance.
+     * @throws EntityNotFoundException If no poster is found with the given ID.
+     */
     public static function findById(int $id): Poster
     {
         $stmt = MyPdo::getInstance()->prepare(

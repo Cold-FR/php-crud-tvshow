@@ -47,6 +47,10 @@ class TVShow
         return $this->posterId;
     }
 
+    /**
+     * Get the seasons of the TV show.
+     * @return array<Season> The seasons of the TV show.
+     */
     public function getSeasons(): array
     {
         return SeasonCollection::findByTvShowId($this->id);
@@ -88,6 +92,10 @@ class TVShow
         return $this;
     }
 
+    /**
+     * Delete the TV show from the database.
+     * @return TVShow The TV show instance.
+     */
     public function delete(): TVShow
     {
         $stmt = MyPdo::getInstance()->prepare(
@@ -104,6 +112,10 @@ class TVShow
         return $this;
     }
 
+    /**
+     * Update the TV show in the database.
+     * @return TVShow The TV show instance.
+     */
     public function update(): TVShow
     {
         $stmt = MyPdo::getInstance()->prepare(
@@ -126,6 +138,10 @@ class TVShow
         return $this;
     }
 
+    /**
+     * Insert the TV show into the database.
+     * @return TVShow The TV show instance.
+     */
     public function insert(): TVShow
     {
         $stmt = MyPdo::getInstance()->prepare(
@@ -149,6 +165,11 @@ class TVShow
         return $this->setId($lastId);
     }
 
+    /**
+     * Save the TV show to the database.
+     * If the TV show does not have an ID, it is inserted. Otherwise, it is updated.
+     * @return TVShow The TV show instance.
+     */
     public function save(): TVShow
     {
         if ($this->id === null) {
@@ -160,6 +181,16 @@ class TVShow
         return $this;
     }
 
+    /**
+     * Create a new TV show instance.
+     * @param string $name The name of the TV show.
+     * @param string $originalName The original name of the TV show.
+     * @param string $homepage The homepage of the TV show.
+     * @param string $overview The overview of the TV show.
+     * @param int|null $posterId The poster ID of the TV show.
+     * @param int|null $id The ID of the TV show.
+     * @return TVShow The TV show instance.
+     */
     public static function create(
         string $name,
         string $originalName,
@@ -179,6 +210,12 @@ class TVShow
         return $tvShow;
     }
 
+    /**
+     * Find a TV show by its ID.
+     * @param int $id The ID of the TV show.
+     * @return TVShow The TV show instance.
+     * @throws EntityNotFoundException If no TV show is found with the given ID.
+     */
     public static function findById(int $id): TVShow
     {
         $stmt = MyPdo::getInstance()->prepare(
