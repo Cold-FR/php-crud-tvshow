@@ -63,8 +63,10 @@ try {
     $appWebPage->appendContent('</ul>');
 
     echo $appWebPage->toHTML();
-} catch (ParameterException|EntityNotFoundException) {
+} catch (ParameterException) {
     header('Location: index.php', response_code: 302);
+} catch (EntityNotFoundException) {
+    http_response_code(404);
 } catch (Exception) {
     http_response_code(500);
 }
