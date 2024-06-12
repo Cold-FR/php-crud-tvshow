@@ -64,3 +64,23 @@ composer test:cs
 ```shell
 composer fix:cs
 ```
+
+## Tests
+
+Pour lancer les tests, on utilise Codeception :
+- Commande pour lancer tous les tests :
+```shell
+composer test # Lance les tests Codeception et PHP CS Fixer
+```
+- Commande pour lancer les tests Codeception :
+```shell
+composer test:codecept # Lance les tests Codeception
+```
+- Commande pour lancer les tests Crud :
+```shell
+composer test:crud # Lance les tests Crud
+```
+- Commande pour lancer les tests Browse :
+```shell
+composer test:browse # Lance les tests Browse
+```
