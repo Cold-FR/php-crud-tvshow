@@ -70,7 +70,7 @@ try {
 
     echo $appWebPage->toHTML();
 } catch (EntityNotFoundException) {
-    header('Location: /');
+    header('Location: /', response_code: 302);
 } catch (Exception) {
     http_response_code(500);
 }
