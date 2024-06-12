@@ -10,6 +10,10 @@ use PDO;
 
 class GenreCollection
 {
+    /**
+     * Find all genres.
+     * @return array<Genre> An array of Genre instances.
+     */
     public static function findAll(): array
     {
         $stmt = MyPDO::getInstance()->prepare(

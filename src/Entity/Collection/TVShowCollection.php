@@ -11,6 +11,10 @@ use PDO;
 
 class TVShowCollection
 {
+    /**
+     * Find all TV shows.
+     * @return array<TVShow> An array of TV show instances.
+     */
     public static function findAll(): array
     {
         $stmt = MyPDO::getInstance()->prepare(
@@ -25,6 +29,11 @@ class TVShowCollection
         return $stmt->fetchAll(PDO::FETCH_CLASS, TVShow::class);
     }
 
+    /**
+     * Find TV shows by genre ID.
+     * @param int $genreId The ID of the genre.
+     * @return array<TVShow> An array of TV show instances.
+     */
     public static function findByGenreId(int $genreId): array
     {
         $genre = Genre::findById($genreId);
