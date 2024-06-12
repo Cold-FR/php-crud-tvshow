@@ -41,6 +41,12 @@ class Season
         return $this->posterId;
     }
 
+    /**
+     * Find a season by its ID.
+     * @param int $id The ID of the season.
+     * @return Season The season instance.
+     * @throws EntityNotFoundException If no season is found with the given ID.
+     */
     public static function findById(int $id): Season
     {
         $stmtSeason = MyPDO::getInstance()->prepare(
@@ -59,11 +65,20 @@ class Season
 
         return $season;
     }
+
+    /**
+     * Get the episodes of the season.
+     * @return array<Episode> The episodes of the season.
+     */
     public function getEpisodes(): array
     {
         return EpisodeCollection::findBySeasonId($this->id);
     }
 
+    /**
+     * Get the TV show of the season.
+     * @return TVShow The TV show instance.
+     */
     public function getTvShow(): TVShow
     {
         return TVShow::findById($this->tvShowId);
