@@ -15,11 +15,6 @@ try {
 
     $appWebPage = new AppWebPage();
     $appWebPage->appendCssUrl('/css/season.css');
-    $appWebPage->appendContentMenu(
-        <<<HTML
-        <a href="/">Retourner à l'accueil</a>
-        HTML
-    );
 
     $seasonId = (int) $_GET['seasonId'];
     $season = Season::findById($seasonId);
