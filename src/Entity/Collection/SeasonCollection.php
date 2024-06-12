@@ -10,6 +10,11 @@ use PDO;
 
 class SeasonCollection
 {
+    /**
+     * Find seasons by TV show ID.
+     * @param int $tvShowId The ID of the TV show.
+     * @return array<Season> An array of Season instances.
+     */
     public static function findByTvShowId(int $tvShowId): array
     {
         $stmtSeason = MyPDO::getInstance()->prepare(
