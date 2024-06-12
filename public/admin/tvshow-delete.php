@@ -17,7 +17,7 @@ try {
 
     $tvShow->delete();
 
-    header('Location: /');
+    header('Location: /', response_code: 302);
 } catch (ParameterException) {
     http_response_code(400);
 } catch (EntityNotFoundException) {

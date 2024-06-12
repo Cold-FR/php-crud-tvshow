@@ -19,7 +19,7 @@ try {
 
     echo $posterData->getJpeg();
 } catch (ParameterException|EntityNotFoundException) {
-    header('Location: /img/default.png');
+    header('Location: /img/default.png', response_code: 302);
 } catch (Exception) {
     http_response_code(500);
 }
