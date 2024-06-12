@@ -24,11 +24,6 @@ try {
 
     $appWebPage = new AppWebPage("Formulaire Série TV");
     $appWebPage->appendCssUrl('/css/form.css');
-    $appWebPage->appendContentMenu(
-        <<<HTML
-        <a href="/">Retourner à l'accueil</a>
-        HTML
-    );
     $appWebPage->appendContent($tvShowForm->getHtmlForm('tvshow-save.php'));
 
     echo $appWebPage->toHTML();

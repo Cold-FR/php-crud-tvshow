@@ -18,9 +18,8 @@ try {
 
     $appWebPage->appendToMenu(
         <<<HTML
-        <a href="/">Retourner à l'accueil</a>
          <a href="/admin/tvshow-form.php?tvShowId=$tvShowId">Modifier la série TV</a>
-        <a href="/admin/tvshow-delete.php?tvShowId=$tvShowId">Supprimer la série TV</a>
+         <a href="/admin/tvshow-delete.php?tvShowId=$tvShowId">Supprimer la série TV</a>
         HTML
     );
 
