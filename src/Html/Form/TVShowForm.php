@@ -14,6 +14,10 @@ class TVShowForm
 
     private ?TVShow $tvShow;
 
+    /**
+     * TVShowForm constructor.
+     * @param TVShow|null $tvShow The TV show to construct the form for.
+     */
     public function __construct(?TVShow $tvShow = null)
     {
         $this->tvShow = $tvShow;
@@ -24,6 +28,11 @@ class TVShowForm
         return $this->tvShow;
     }
 
+    /**
+     * Get the HTML form for the TV show.
+     * @param string $action The action attribute for the form.
+     * @return string The HTML form.
+     */
     public function getHtmlForm(string $action): string
     {
         $showName = $this->getTVShow()?->getName();
@@ -65,6 +74,10 @@ class TVShowForm
         HTML;
     }
 
+    /**
+     * Set the entity from the query string.
+     * @throws ParameterException If a required field is not completed.
+     */
     public function setEntityFromQueryString(): void
     {
         $tvShowId = null;
