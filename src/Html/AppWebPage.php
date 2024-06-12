@@ -10,6 +10,10 @@ class AppWebPage extends WebPage
 {
     private string $menu;
 
+    /**
+     * AppWebPage constructor.
+     * @param string $title Title of the page.
+     */
     public function __construct(string $title = '')
     {
         parent::__construct($title);
@@ -29,8 +33,8 @@ class AppWebPage extends WebPage
     }
 
     /**
-     * Add content to the menu.
-     * @param string $menu The content to add.
+     * Append content to the menu of the page.
+     * @param string $menu The content to append.
      */
     public function appendToMenu(string $menu): void
     {
@@ -38,8 +42,8 @@ class AppWebPage extends WebPage
     }
 
     /**
-     * Return and generate the HTML structure of the page.
-     * @return string The HTML structure of the page.
+     * Generate the complete web page with a header, menu, content, and footer.
+     * @return string The complete web page.
      */
     public function toHTML(): string
     {
