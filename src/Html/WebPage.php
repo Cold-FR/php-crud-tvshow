@@ -15,8 +15,8 @@ class WebPage
     private string $body;
 
     /**
-     * Constructeur.
-     * @param string $title Titre de la page.
+     * Constructor.
+     * @param string $title Title of the page.
      */
     public function __construct(string $title = '')
     {
@@ -25,47 +25,29 @@ class WebPage
         $this->body = '';
     }
 
-    /**
-     * Retourne le contenu de $this→head.
-     * @return string Le contenu de $this→head.
-     */
     public function getHead(): string
     {
         return $this->head;
     }
 
-    /**
-     * Retourne le contenu de $this→title.
-     * @return string Le contenu de $this→title.
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * Affecter le titre de la page.
-     * @param string $title Le titre.
-     * @return void
-     */
     public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     *  Retourne le contenu de $this→body.
-     * @return string Le contenu de $this→body.
-     */
     public function getBody(): string
     {
         return $this->body;
     }
 
     /**
-     * Ajouter un contenu dans $this→head.
-     * @param string $content Le contenu à ajouter.
-     * @return void
+     * Append content to the head of the page.
+     * @param string $content The content to append.
      */
     public function appendToHead(string $content): void
     {
@@ -73,9 +55,8 @@ class WebPage
     }
 
     /**
-     * Ajouter un contenu CSS dans $this→head.
-     * @param string $css Le contenu CSS à ajouter.
-     * @return void
+     * Append CSS to the head of the page.
+     * @param string $css The CSS to append.
      */
     public function appendCss(string $css): void
     {
@@ -83,9 +64,8 @@ class WebPage
     }
 
     /**
-     * Ajouter l'URL d'un script CSS dans $this→head.
-     * @param string $url L'URL du script CSS.
-     * @return void
+     * Append a CSS URL to the head of the page.
+     * @param string $url The URL to append.
      */
     public function appendCssUrl(string $url): void
     {
@@ -93,9 +73,8 @@ class WebPage
     }
 
     /**
-     * Ajouter un contenu JavaScript dans $this→head.
-     * @param string $js Le contenu JavaScript à ajouter.
-     * @return void
+     * Append JavaScript to the head of the page.
+     * @param string $js The JavaScript to append.
      */
     public function appendJs(string $js): void
     {
@@ -103,9 +82,8 @@ class WebPage
     }
 
     /**
-     * Ajouter l'URL d'un script JavaScript dans $this→head.
-     * @param string $url L'URL du script JavaScript.
-     * @return void
+     * Append a JavaScript URL to the head of the page.
+     * @param string $url The URL to append.
      */
     public function appendJsUrl(string $url): void
     {
@@ -113,9 +91,8 @@ class WebPage
     }
 
     /**
-     * Ajouter un contenu dans $this→body.
-     * @param string $content Le contenu à ajouter.
-     * @return void
+     * Append content to the body of the page.
+     * @param string $content The content to append.
      */
     public function appendContent(string $content): void
     {
@@ -123,8 +100,8 @@ class WebPage
     }
 
     /**
-     * Produire la page Web complète.
-     * @return string La page Web complète.
+     * Generate the complete web page.
+     * @return string The complete web page.
      */
     public function toHTML(): string
     {
@@ -145,8 +122,8 @@ class WebPage
     }
 
     /**
-     * Donner la date et l'heure de la dernière modification du script principal.
-     * @return string La date et l'heure de la dernière modification.
+     * Get the date and time of the last modification of the main script.
+     * @return string The date and time of the last modification.
      */
     public static function getLastModification(): string
     {
