@@ -75,7 +75,7 @@ try {
 
     echo $appWebPage->toHTML();
 } catch (ParameterException|EntityNotFoundException) {
-    header('Location: index.php');
+    header('Location: index.php', response_code: 302);
 } catch (Exception) {
     http_response_code(500);
 }
