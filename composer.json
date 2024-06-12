@@ -31,7 +31,8 @@
         "codeception/codeception": "^4.1",
         "codeception/module-phpbrowser": "^1",
         "codeception/module-asserts": "^1",
-        "codeception/module-db": "^1"
+        "codeception/module-db": "^1",
+        "ext-dom": "*"
     },
     "config": {
         "process-timeout": 0
@@ -41,6 +42,15 @@
         "start:linux": "bin/run-server.sh",
         "start:windows": "bin/run-server.bat",
         "test:cs": "php-cs-fixer fix --dry-run --diff",
-        "fix:cs": "php-cs-fixer fix"
+        "fix:cs": "php-cs-fixer fix",
+        "test:crud": "php vendor/bin/codecept run Crud",
+        "test:codecept": [
+            "php vendor/bin/codecept clean",
+            "php vendor/bin/codecept run"
+        ],
+        "test": [
+            "@test:cs",
+            "@test:codecept"
+        ]
     }
 }
