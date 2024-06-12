@@ -1,8 +1,11 @@
 <?php
+
 namespace Tests\Crud\Collection;
+
 use Entity\Collection\GenreCollection;
 use Entity\Genre;
 use Tests\CrudTester;
+
 class GenreCollectionCest
 {
     public function findAll(CrudTester $I): void
