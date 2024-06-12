@@ -14,12 +14,12 @@ class GenreCollection
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT id, name
             FROM genre
             SQL
         );
-
         $stmt->execute();
+
         return $stmt->fetchAll(PDO::FETCH_CLASS, Genre::class);
     }
 }

@@ -14,13 +14,14 @@ class SeasonCollection
     {
         $stmtSeason = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT *
+            SELECT id, tvShowId, name, seasonNumber, posterId
             FROM season
             WHERE tvShowId=:id
             ORDER BY seasonNumber
             SQL
         );
         $stmtSeason->execute(['id' => $tvShowId]);
+
         return $stmtSeason->fetchAll(PDO::FETCH_CLASS, Season::class);
     }
 }
