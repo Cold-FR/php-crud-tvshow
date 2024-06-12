@@ -21,11 +21,14 @@ try {
         HTML
     );
 
-    $seasonId = (int)$_GET['seasonId'];
-
+    $seasonId = (int) $_GET['seasonId'];
     $season = Season::findById($seasonId);
-    $tvShowName = TVShow::findById($season->getTvShowId())->getName();
     $seasonName = $appWebPage->escapeString($season->getName());
+
+    $tvShow = $season->getTvShow();
+    $tvShowName = $appWebPage->escapeString($tvShow->getName());
+    $tvShowHomepage = $appWebPage->escapeString($tvShow->getHomepage());
+
     $appWebPage->setTitle("Séries TV : {$tvShowName} - {$seasonName}");
 
     $episodes = $season->getEpisodes();
